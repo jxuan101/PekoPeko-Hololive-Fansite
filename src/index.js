@@ -123,10 +123,11 @@ class Main extends React.Component {
         }
     }
 
-    createYoutubeLivestreamEmbed () {
+    createYoutubeLivestreamEmbed (ID) {
+        const streamLink = "https://www.youtube.com/embed/live_stream?channel=" + ID;
         return (
             <div className = 'youtube-player'>
-                
+                <iframe width="800" height="500" src={streamLink} frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
             </div>
         );
     }
@@ -144,7 +145,7 @@ class Main extends React.Component {
             return (
                 <div className = 'idol-page'>
                     {this.createTwitterEmbed(this.state.hololivejp[this.state.index].twitter)}
-                    {this.createYoutubeLivestreamEmbed()}
+                    {this.createYoutubeLivestreamEmbed(this.state.hololivejp[this.state.index].youtube)}
                 </div>
             );
         }
@@ -152,7 +153,7 @@ class Main extends React.Component {
             return (
                 <div className = 'idol-page'>
                     {this.createTwitterEmbed(this.state.hololiveid[this.state.index].twitter)}
-                    {this.createYoutubeLivestreamEmbed()}
+                    {this.createYoutubeLivestreamEmbed(this.state.hololiveid[this.state.index].youtube)}
                 </div>
             );
         }
@@ -160,7 +161,7 @@ class Main extends React.Component {
             return (
                 <div className = 'idol-page'>
                     {this.createTwitterEmbed(this.state.holostar[this.state.index].twitter)}
-                    {this.createYoutubeLivestreamEmbed()}
+                    {this.createYoutubeLivestreamEmbed(this.state.holostar[this.state.index].youtube)}
                 </div>
             );
         }
